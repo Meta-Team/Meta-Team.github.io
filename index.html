@@ -3,28 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    <link href="/front_comp/font/NunitoSans/NunitoSans.css" rel="stylesheet" type="text/css">
-    <link href="/front_comp/universal_overwrite.css" rel="stylesheet" type="text/css">
-    <link href="/front_comp/nav/css_include.css" rel="stylesheet" type="text/css">
-    <link href="/front_comp/content-loader/css_include.css" rel="stylesheet" type="text/css">
+    <link href="/ui_components/font/NunitoSans/NunitoSans.css" rel="stylesheet" type="text/css">
+    <link href="/ui_components/universal_overwrite.css" rel="stylesheet" type="text/css">
+    <link href="/ui_components/nav/css_include.css" rel="stylesheet" type="text/css">
+    <link href="/ui_components/content-loader/css_include.css" rel="stylesheet" type="text/css">
 </head>
 <body style="margin: 0">
-<nav id="universal-navigator">
-    <a>HOME</a>
-    <a>INFANTRY</a>
-    <a>HERO</a>
-    <a>SENTRY</a>
+<nav id="navigation-bar">
+    <input type="checkbox" style="display: none" id="mobile-panel-status">
+    <label	id="nav-expand-btn"	class="nav-expand-btn"	for="mobile-panel-status">
+				<span class="nav-expand-btn-bread nav-expand-btn-bread-top">
+					<span class="nav-expand-btn-line nav-expand-btn-line-top"></span>
+				</span>
+                <span class="nav-expand-btn-bread nav-expand-btn-bread-bottom">
+                    <span class="nav-expand-btn-line nav-expand-btn-line-bottom"></span>
+				</span>
+    </label>
+    <div class="logo-panel" style="white-space:nowrap">
+        this is logo. <br>Will be added according to json.
+    </div>
+    <div class="menu-panel">
+<!--        For Test Use, loaded from json files in the future-->
+        <div class="menu-items">HOME</div>
+        <div class="menu-items">INFANTRY</div>
+        <div class="menu-items">HERO</div>
+        <div class="menu-items">ENGINEER</div>
+        <div class="menu-items">SENTRY</div>
+        <div class="menu-items">AERIAL</div>
+    </div>
 </nav>
 <div id="content-window" class="content-window">
-    <div style="height: 500px; width: 100%;background-color: rebeccapurple; font-size: 100px">ABJJCIOJI<br>OABJJ<br>CIOJIOA<br>BJJCIOJIOJFI<br>JSOIJEFIOjI</div>
+<!--    For Test Use, loaded from html files in the future-->
+    <div style="height: 500px; width: 100%;background-color: black; font-size: 70px">
+        <br>META-TEAM<br>TEST<br>META-TEAM<br>TEST<br>META-TEAM
+    </div>
     <div style="height: 500px; width: 100%;background-color: blue"></div>
     <div style="height: 500px; width: 100%;background-color: aliceblue"></div>
     <div style="height: 500px; width: 100%;background-color: bisque"></div>
 </div>
-<script src="front_comp/nav/javascript_include.js"></script>
+<script src="ui_components/nav/javascript_include.js"></script>
 <script>
     let NavController = new nav_controller();
-    NavController.init();
 </script>
 </body>
 </html>

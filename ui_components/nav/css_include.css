@@ -1,0 +1,230 @@
+/********************************************//**
+ *                  Nav Bar
+ ***********************************************/
+nav{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    color: white;
+}
+nav::after{
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+
+    transition: all 0.5s ease-in-out;
+}
+.scroll-down{
+    border-bottom: rgba(255,255,255,0.2) 1px solid;
+}
+.scroll-down::after{
+    z-index: -2;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: rgba(20,20,20,0.0);
+    backdrop-filter: blur(20px) brightness(50%);
+    -webkit-backdrop-filter: blur(20px) brightness(50%);
+}
+/********************************************//**
+ *                Logo Panel
+ ***********************************************/
+.logo-panel{
+    width: 40px;
+    height: 40px;
+    margin: 15px;
+    background-color: red;
+}
+/********************************************//**
+ *                Menu Panel
+ ***********************************************/
+.menu-panel{
+    transition: all 0.5s cubic-bezier(0.8,0,.2,1.0);
+}
+/*Define the animation curve of links*/
+nav .menu-items{
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.8,0,.2,1.0);
+}
+/*The background of menu items*/
+nav .menu-items:after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 100%;
+
+    background: white;
+
+    z-index: -1;
+
+    pointer-events: none;
+    transition: all 0.5s cubic-bezier(0.8,0,.2,1.0);
+}
+/*Hover behavior, font color to black*/
+nav .menu-items:hover{
+    color: black;
+}
+/*Hover behavior, extend*/
+nav .menu-items:hover::after{
+    width: 100%;
+}
+
+/*Layout for PC*/
+@media screen and (min-width: 700px) {
+    nav{
+        height: 80px;
+        align-items: center;
+        display: flex;
+    }
+
+    nav::after{
+        background-color: transparent;
+        backdrop-filter: initial;
+        -webkit-backdrop-filter: initial;
+    }
+
+    .menu-panel {
+        position: absolute;
+        right: 2.5%;
+        width: auto;
+        display: flex;
+    }
+
+    .nav-expand-btn{
+        display: none;
+    }
+
+    nav .menu-items{
+        padding: 0 5px 0 5px;
+        width: auto;
+    }
+}
+
+/*Layout for mobile*/
+@media screen and (max-width: 699px) {
+    /********************************************//**
+     *                  Nav Bar
+     ***********************************************/
+    nav{
+        height: auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+    nav::after{
+        background-color: rgba(20,20,20,0.0);
+        backdrop-filter: blur(20px) brightness(50%);
+        -webkit-backdrop-filter: blur(20px) brightness(50%);
+    }
+    /********************************************//**
+     *             Panel Toggle Button
+     ***********************************************/
+    .nav-expand-btn{
+        width: 40px;
+        height: 40px;
+        margin: 15px;
+        left: 0;
+        top: 0;
+        position: absolute;
+        border-width: 0;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+
+        cursor: pointer;
+        transition: all 0.25s;
+        pointer-events: all;
+    }
+    .nav-expand-btn-bread{
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 30px;
+        height: 30px;
+        -webkit-transition: transform 0.25s 0.0s cubic-bezier(0.8,0.0,0.8,0.5);
+        transition:all 0.25s 0.0s cubic-bezier(0.8,0.0,0.8,0.5);
+    }
+    .nav-expand-btn-line{
+        display: block;
+        left: 5%;
+        width: 90%;
+        height: 3px;
+        background: #fff;
+        border-radius: 1.5px;
+        position: absolute;
+
+        -webkit-transition: transform 0.4s 0.25s cubic-bezier(0.2,0.5,0.2,1.0);
+        transition:all 0.4s 0.25s cubic-bezier(0.2,0.5,0.2,1.0);
+    }
+
+    .nav-expand-btn-line-top{
+        top: 8px;
+    }
+    .nav-expand-btn-line-bottom{
+        bottom: 8px;
+    }
+
+    #mobile-panel-status:checked ~ * .nav-expand-btn-bread-top{
+        transform: rotateZ(45deg);
+    }
+    #mobile-panel-status:checked ~ * .nav-expand-btn-bread-bottom{
+        transform: rotateZ(-45deg);
+    }
+    #mobile-panel-status:checked ~ * .nav-expand-btn-line-top{
+        transform: translateY(5.5px);
+    }
+    #mobile-panel-status:checked ~ * .nav-expand-btn-line-bottom{
+        transform: translateY(-5.5px);
+    }
+    #mobile-panel-status:checked ~ * .nav-expand-btn-line{
+        -webkit-transition: transform 0.25s 0.0s cubic-bezier(0.8,0.0,0.8,0.5);
+        transition:all 0.25s 0.0s cubic-bezier(0.8,0.0,0.8,0.5);
+    }
+    #mobile-panel-status:checked ~ * .nav-expand-btn-bread{
+        -webkit-transition: transform 0.4s 0.25s cubic-bezier(0.2,0.5,0.2,1.0);
+        transition:all 0.4s 0.25s cubic-bezier(0.2,0.5,0.2,1.0);
+    }
+
+    /********************************************//**
+     *                  Link Panel
+     ***********************************************/
+    .menu-panel {
+        position: initial;
+        width: 100%;
+        display: block;
+    }
+    /*In mobile layout, menu buttons are hidden when checkbox is uncheck*/
+    nav .menu-items{
+        line-height: 80px;
+
+        padding: 0 5% 0 5%;
+        height: 0;
+        width: 100%;
+
+        opacity: 0;
+        background-color: rgba(255,255,255,0.1);
+        border-bottom: rgba(255,255,255,0.2) 0 solid;
+    }
+    /*Show menu buttons when checkbox is checked*/
+    #mobile-panel-status:checked ~ .menu-panel div{
+        height: 80px;
+        opacity: 1;
+        border-bottom: rgba(255,255,255,0.2) 1px solid;
+    }
+}
