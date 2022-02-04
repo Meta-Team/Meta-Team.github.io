@@ -1,5 +1,5 @@
 html, body{ height: 100%; font-family: NunitoSans-Light}
 
-root{
-    --rm-blue: rgba(62,145,247);
+:root{
+    --rm-blue: rgb(62,145,247);
 }
