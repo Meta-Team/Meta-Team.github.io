@@ -8,5 +8,6 @@
     color: white;
     overflow-x: hidden;
     overflow-y: scroll;
+    -webkit-overflow-scrolling : touch
 }
 .content-window::-webkit-scrollbar { width: 0 !important }
