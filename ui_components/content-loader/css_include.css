@@ -20,14 +20,18 @@
 
     overflow-x: hidden;
     overflow-y: scroll;
+
     -webkit-overflow-scrolling : touch;
     transition: all 0.25s 0.5s cubic-bezier(0.0,0.0,0.0,1.0);
+    transform-origin: center;
 }
 .content-screen::-webkit-scrollbar { width: 0 !important }
 
 #loading-status:checked ~ .content-screen{
     opacity: 0;
     transition: all 0.25s cubic-bezier(1.0,0.0,1.0,1.0);
+    filter: blur(20px);
+    transform: scale(0.8);
 }
 
 /********************************************//**
