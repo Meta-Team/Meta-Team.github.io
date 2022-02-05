@@ -2,8 +2,10 @@ class nav_controller{
     constructor(parsed_json) {
         this.nav_obj = document.getElementById("navigation-bar");
         this.content_obj = document.getElementById("content-screen");
-        this.link_panel_obj = document.getElementById("menu-panel");
-        this.logo_obj = document.getElementById("logo");
+        this.menu_panel_obj = document.getElementById("nav-menuPanel");
+        this.logo_panel_obj = document.getElementById("nav-logoPanel");
+        this.loading_status = document.getElementById("loading-status");
+        this.link_panel_status = document.getElementById("nav-panel-status");
 
         let _this_ref = this;
 
@@ -20,7 +22,7 @@ class nav_controller{
         for ( let i = 0; i < parsed_json.links.length; i++) {
             this.make_btn(parsed_json.links[i]);
         }
-        this.logo_obj.style.backgroundImage = "url('" + parsed_json.logo + "')";
+        this.logo_panel_obj.style.backgroundImage = "url('" + parsed_json.logo + "')";
     }
 
     /**
@@ -28,12 +30,14 @@ class nav_controller{
      * @var     json_link_obj an object under "link" category of website-config.json. Contains "title" and "src".
      */
     make_btn(json_link_obj) {
+        let _this_ref = this;
         let btn = document.createElement("div");
         btn.classList.add("menu-items");
         btn.innerText = json_link_obj.title;
         btn.onclick = function () {
-
+            _this_ref.loading_status.checked = true;
+            _this_ref.link_panel_status.checked = false;
         }
-        this.link_panel_obj.appendChild(btn);
+        this.menu_panel_obj.appendChild(btn);
     }
 }

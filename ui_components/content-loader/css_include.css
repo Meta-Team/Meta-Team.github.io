@@ -8,30 +8,29 @@
     --loading-grid-index-offset-horz: 8;
 }
 .content-screen{
-    position: absolute;
 
-    left: 0;
-    top: 0;
+    align-self: center;
+
     width: 100%;
     height: 100%;
 
     background-color: black;
     color: white;
+    border: solid 1px rgb(100,100,100);
 
     overflow-x: hidden;
     overflow-y: scroll;
 
     -webkit-overflow-scrolling : touch;
-    transition: all 0.25s 0.5s cubic-bezier(0.0,0.0,0.0,1.0);
+    transition: all 0.5s 0.5s cubic-bezier(0.0,0.0,0.3,1.0);
     transform-origin: center;
 }
 .content-screen::-webkit-scrollbar { width: 0 !important }
 
 #loading-status:checked ~ .content-screen{
     opacity: 0;
-    transition: all 0.25s cubic-bezier(1.0,0.0,1.0,1.0);
-    filter: blur(20px);
-    transform: scale(0.8);
+    transition: all 0.4s cubic-bezier(.7,0.0,1.0,1.0);
+    transform: scale(0.6);
 }
 
 /********************************************//**

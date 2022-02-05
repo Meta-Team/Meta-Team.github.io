@@ -38,7 +38,7 @@ nav::after{
 /********************************************//**
  *                Logo Panel
  ***********************************************/
-.logo-panel{
+.nav-logoPanel{
     width: 40px;
     height: 40px;
     margin: 15px;
@@ -47,7 +47,7 @@ nav::after{
 /********************************************//**
  *                Menu Panel
  ***********************************************/
-.menu-panel{
+.nav-menuPanel{
     transition: all 0.5s cubic-bezier(0.8,0,.2,1.0);
 }
 /*Define the animation curve of links*/
@@ -84,7 +84,7 @@ nav .menu-items:hover::after{
     width: 100%;
 }
 
-.en-switch-btn{
+.nav-langSwitchBtn{
     z-index: 1;
     border-radius: 2px;
     padding: 3px 7px;
@@ -99,7 +99,7 @@ nav .menu-items:hover::after{
 }
 
 /**Just a joke :D*/
-.en-switch-btn:hover::before{
+.nav-langSwitchBtn:hover::before{
     content: "No Chinese translation yet. You need to learn English!";
     border: rgba(255,255,255,0.2) 1px solid;
     text-align: right;
@@ -129,7 +129,7 @@ nav .menu-items:hover::after{
         -webkit-backdrop-filter: initial;
     }
 
-    .menu-panel {
+    .nav-menuPanel {
         position: absolute;
         right: 50px;
         width: auto;
@@ -145,7 +145,7 @@ nav .menu-items:hover::after{
         width: auto;
     }
 
-    .en-switch-btn{
+    .nav-langSwitchBtn{
         top: 28px;
     }
 }
@@ -218,23 +218,23 @@ nav .menu-items:hover::after{
         bottom: 8px;
     }
 
-    #mobile-panel-status:checked ~ * .nav-expand-btn-bread-top{
+    #nav-panel-status:checked ~ * .nav-expand-btn-bread-top{
         transform: rotateZ(45deg);
     }
-    #mobile-panel-status:checked ~ * .nav-expand-btn-bread-bottom{
+    #nav-panel-status:checked ~ * .nav-expand-btn-bread-bottom{
         transform: rotateZ(-45deg);
     }
-    #mobile-panel-status:checked ~ * .nav-expand-btn-line-top{
+    #nav-panel-status:checked ~ * .nav-expand-btn-line-top{
         transform: translateY(5.5px);
     }
-    #mobile-panel-status:checked ~ * .nav-expand-btn-line-bottom{
+    #nav-panel-status:checked ~ * .nav-expand-btn-line-bottom{
         transform: translateY(-5.5px);
     }
-    #mobile-panel-status:checked ~ * .nav-expand-btn-line{
+    #nav-panel-status:checked ~ * .nav-expand-btn-line{
         -webkit-transition: transform 0.25s 0.0s cubic-bezier(0.8,0.0,0.8,0.5);
         transition:all 0.25s 0.0s cubic-bezier(0.8,0.0,0.8,0.5);
     }
-    #mobile-panel-status:checked ~ * .nav-expand-btn-bread{
+    #nav-panel-status:checked ~ * .nav-expand-btn-bread{
         -webkit-transition: transform 0.4s 0.25s cubic-bezier(0.2,0.5,0.2,1.0);
         transition:all 0.4s 0.25s cubic-bezier(0.2,0.5,0.2,1.0);
     }
@@ -242,7 +242,7 @@ nav .menu-items:hover::after{
     /********************************************//**
      *                  Link Panel
      ***********************************************/
-    .menu-panel {
+    .nav-menuPanel {
         position: initial;
         width: 100%;
         display: block;
@@ -260,12 +260,12 @@ nav .menu-items:hover::after{
         border-bottom: rgba(255,255,255,0.2) 0 solid;
     }
     /*Show menu buttons when checkbox is checked*/
-    #mobile-panel-status:checked ~ .menu-panel div{
+    #nav-panel-status:checked ~ .nav-menuPanel div{
         height: 80px;
         opacity: 1;
         border-bottom: rgba(255,255,255,0.2) 1px solid;
     }
-    .en-switch-btn{
+    .nav-langSwitchBtn{
         top: 23px;
     }
 }
