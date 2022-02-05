@@ -1,7 +1,7 @@
 class nav_controller{
     constructor(parsed_json) {
         this.nav_obj = document.getElementById("navigation-bar");
-        this.content_obj = document.getElementById("content-window");
+        this.content_obj = document.getElementById("content-screen");
         this.link_panel_obj = document.getElementById("menu-panel");
         this.logo_obj = document.getElementById("logo");
 

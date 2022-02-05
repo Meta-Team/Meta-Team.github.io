@@ -265,7 +265,6 @@ nav .menu-items:hover::after{
         opacity: 1;
         border-bottom: rgba(255,255,255,0.2) 1px solid;
     }
-
     .en-switch-btn{
         top: 23px;
     }

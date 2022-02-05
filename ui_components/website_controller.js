@@ -1,8 +1,6 @@
 class website_controller{
     constructor(url) {
         this.url = url;
-        // const yaml = require('js-yaml');
-        // const fs   = require('fs');
         let json_request = new XMLHttpRequest();
         json_request.open("get",this.url);
         json_request.send(null);
@@ -11,8 +9,8 @@ class website_controller{
                 let parsed_json = JSON.parse(json_request.responseText);
                 let NavController = new nav_controller(parsed_json);
                 document.title = parsed_json.title;
+                let ContentLoader = new content_loader(parsed_json);
             }
         }
-
     }
 }

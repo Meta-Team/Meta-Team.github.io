@@ -1,4 +1,4 @@
-html, body{ height: 100%; font-family: NunitoSans-Light}
+html, body{ height: 100%; font-family: NunitoSans-Light,serif; background-color: black;}
 
 :root{
     --rm-blue: rgb(62,145,247);
