@@ -1,4 +1,4 @@
-html, body{ height: 100%; font-family: NunitoSans-Light,serif; background-color: black;overflow: hidden; display: flex; width: 100%}
+html, body{ width: 100% ; height: 100%; position: fixed; font-family: NunitoSans-Light,serif; background-color: black;overflow: hidden; display: flex;}
 
 :root{
     --rm-blue: rgb(62,145,247);
