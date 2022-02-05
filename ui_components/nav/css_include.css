@@ -42,7 +42,7 @@ nav::after{
     width: 40px;
     height: 40px;
     margin: 15px;
-    background-color: red;
+    background-size: 100% 100%;
 }
 /********************************************//**
  *                Menu Panel
@@ -54,6 +54,10 @@ nav::after{
 nav .menu-items{
     position: relative;
     transition: all 0.5s cubic-bezier(0.8,0,.2,1.0);
+
+    user-select: none;
+    pointer-events: all;
+    cursor: default;
 }
 /*The background of menu items*/
 nav .menu-items:after{
@@ -91,6 +95,7 @@ nav .menu-items:hover::after{
     background-color: var(--rm-blue);
     position: absolute;
     right: 10px;
+    transition: all 0.5s cubic-bezier(0.8,0.0,0.2,1.0);
 }
 
 /**Just a joke :D*/
@@ -138,6 +143,10 @@ nav .menu-items:hover::after{
     nav .menu-items{
         padding: 0 5px 0 5px;
         width: auto;
+    }
+
+    .en-switch-btn{
+        top: 28px;
     }
 }
 /*Layout for mobile*/
@@ -255,5 +264,9 @@ nav .menu-items:hover::after{
         height: 80px;
         opacity: 1;
         border-bottom: rgba(255,255,255,0.2) 1px solid;
+    }
+
+    .en-switch-btn{
+        top: 23px;
     }
 }

@@ -1,0 +1,34 @@
+{
+  "title": "Meta-Team",
+  "logo": "/resources/Meta-Logo.png",
+  "links": [
+    {
+      "title": "HOME",
+      "src": ""
+    },
+    {
+      "title": "INFANTRY",
+      "src": ""
+    },
+    {
+      "title": "HERO",
+      "src": ""
+    },
+    {
+      "title": "SENTRY",
+      "src": ""
+    },
+    {
+      "title": "ENGINEER",
+      "src": ""
+    },
+    {
+      "title": "SENTRY",
+      "src": ""
+    },
+    {
+      "title": "AERIAL",
+      "src": ""
+    }
+  ]
+}

@@ -30,23 +30,14 @@
                     <span class="nav-expand-btn-line nav-expand-btn-line-bottom"></span>
 				</span>
     </label>
-    <div class="logo-panel" style="white-space:nowrap">
-        this is logo. <br>Will be added according to json.
-    </div>
+    <div class="logo-panel" id="logo"></div>
     <div class="en-switch-btn">中文</div>
-    <div class="menu-panel">
-<!--        For Test Use, loaded from json files in the future-->
-        <div class="menu-items">HOME</div>
-        <div class="menu-items">INFANTRY</div>
-        <div class="menu-items">HERO</div>
-        <div class="menu-items">ENGINEER</div>
-        <div class="menu-items">SENTRY</div>
-        <div class="menu-items">AERIAL</div>
-    </div>
+    <div class="menu-panel" id = "menu-panel"></div>
 </nav>
 <script src="ui_components/nav/javascript_include.js"></script>
+<script src="ui_components/website_controller.js"></script>
 <script>
-    let NavController = new nav_controller();
+    let WebsiteController = new website_controller("/website-config.json");
 </script>
 </body>
 </html>
