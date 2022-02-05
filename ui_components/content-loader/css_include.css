@@ -109,8 +109,8 @@ horz-line:nth-child(odd){
     color: white;
     background: -webkit-linear-gradient(
             45deg,
-            rgba(40,40,40) 0, rgba(40,40,40) 10%, black 10%, black 50%,
-            rgba(40,40,40) 50%, rgba(40,40,40) 60%, black 60%, black
+            var(--rm-yellow-darken) 0, var(--rm-yellow-darken) 10%, black 10%, black 50%,
+            var(--rm-yellow-darken) 50%, var(--rm-yellow-darken) 60%, black 60%, black
     );
     background-size: 10px 10px;
     opacity: 0;

@@ -10,7 +10,18 @@ class content_loader {
         this._update_grid();
         window.addEventListener('resize',function (){
             _this_ref._update_grid();
-        })
+        });
+        window.addEventListener('orientationchange',function (){
+            _this_ref._update_grid();
+        });
+        document.addEventListener('loadContentRequest',function (event){
+            console.log(event.detail);
+            _this_ref.load_content(event);
+        });
+    }
+
+    load_content(event){
+        // window.history.pushState(event.detail, event.detail.title, "/"+event.detail.src);
     }
 
     /**
@@ -25,11 +36,11 @@ class content_loader {
         let new_horz_half_line_count = height/2/this.grid_size - 0.5;
         if(new_vert_half_line_count !== this.vert_half_line_count){
             this.vert_half_line_count = width/2/this.grid_size-0.5;
-            this.generate_grid();
+            this._generate_grid();
         }
         if(new_horz_half_line_count !== this.horz_half_line_count){
             this.horz_half_line_count = height/2/this.grid_size - 0.5;
-            this.generate_grid();
+            this._generate_grid();
         }
         document.documentElement.style.setProperty("--loading-grid-index-offset-vert",this.vert_half_line_count);
         document.documentElement.style.setProperty("--loading-grid-index-offset-horz",this.horz_half_line_count);
@@ -41,7 +52,7 @@ class content_loader {
      * @brief Generate grid background in loading view
      * @detain Removes all children in #grid-bg element and regenerate lines.
      */
-    generate_grid(){
+    _generate_grid(){
         while (this.loading_grid_obj.childNodes.length>0){
             this.loading_grid_obj.removeChild(this.loading_grid_obj.lastChild);
         }

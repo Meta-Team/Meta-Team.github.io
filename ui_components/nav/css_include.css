@@ -8,6 +8,7 @@ nav{
     top: 0;
 
     color: white;
+    z-index: 2;
 }
 nav::after{
     content: "";
@@ -17,7 +18,7 @@ nav::after{
     left: 0;
     height: 100%;
     width: 100%;
-    z-index: -2;
+    z-index: 2;
 
     transition: all 0.5s ease-in-out;
 }
@@ -25,7 +26,7 @@ nav::after{
     border-bottom: rgba(255,255,255,0.2) 1px solid;
 }
 .scroll-down::after{
-    z-index: -2;
+    z-index: 2;
     content: "";
     position: absolute;
     top: 0;
@@ -43,12 +44,14 @@ nav::after{
     height: 40px;
     margin: 15px;
     background-size: 100% 100%;
+    z-index: 3;
 }
 /********************************************//**
  *                Menu Panel
  ***********************************************/
 .nav-menuPanel{
     transition: all 0.5s cubic-bezier(0.8,0,.2,1.0);
+    z-index: 3;
 }
 /*Define the animation curve of links*/
 nav .menu-items{
@@ -58,6 +61,7 @@ nav .menu-items{
     user-select: none;
     pointer-events: all;
     cursor: default;
+    z-index: 5;
 }
 /*The background of menu items*/
 nav .menu-items:after{
@@ -85,7 +89,7 @@ nav .menu-items:hover::after{
 }
 
 .nav-langSwitchBtn{
-    z-index: 1;
+    z-index: 3;
     border-radius: 2px;
     padding: 3px 7px;
 
@@ -188,6 +192,7 @@ nav .menu-items:hover::after{
         cursor: pointer;
         transition: all 0.25s;
         pointer-events: all;
+        z-index: 3;
     }
     .nav-expand-btn-bread{
         position: absolute;

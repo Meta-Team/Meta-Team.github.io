@@ -2,4 +2,6 @@ html, body{ height: 100%; font-family: NunitoSans-Light,serif; background-color:
 
 :root{
     --rm-blue: rgb(62,145,247);
+    --rm-yellow-darken: rgb(72,58,27);
+    --rm-yellow: rgba(245,193,66);
 }

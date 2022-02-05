@@ -10,17 +10,33 @@
     <link href="/ui_components/universal_overwrite.css" rel="stylesheet" type="text/css">
     <link href="/ui_components/nav/css_include.css" rel="stylesheet" type="text/css">
     <link href="/ui_components/content-loader/css_include.css" rel="stylesheet" type="text/css">
+
+<!--    For test only. this css will be loaded by javascript.-->
+    <link href="/resources/home/css_include.css" rel="stylesheet" type="text/css">
+
 </head>
 <body style="margin: 0">
 <input type="checkbox" style="position: absolute; left: 20px; top: 100px; z-index: 4" id="loading-status">
 <div id="content-screen" class="content-screen">
     <!--    For Test Use, loaded from html files in the future-->
+    <div class="season-content-wrapper">
+        <div class="season-video-wrapper">
+            <video class="season-video" preload="auto" autoplay="autoplay" loop="loop"
+                   src="https://rm-static.djicdn.com/documents/3724/ea4c2254c15c91632308118766985166.mp4"></video>
+        </div>
+        <div class="season-content">
+            <h2 class="season-content-title">Calling All Young Engineers</h2>
+            <p class="season-content-desc">Learn From Every Match</p>
+            <a class="button" href="mailto:robomaster@intl.zju.edu.cn">Apply &gt</a>
+        </div>
+    </div>
     <div style="height: 500px; width: 100%;background-color: black; font-size: 70px">
         <br>META-TEAM<br>TEST<br>META-TEAM<br>TEST<br>META-TEAM
     </div>
     <div style="height: 500px; width: 100%;background-color: blue"></div>
     <div style="height: 500px; width: 100%;background-color: aliceblue"></div>
     <div style="height: 500px; width: 100%;background-color: bisque"></div>
+
 </div>
 <div id="loading-screen">
     <div id = "loading-textBox"><div class="loading-text"></div></div>

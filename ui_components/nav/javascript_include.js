@@ -37,6 +37,8 @@ class nav_controller{
         btn.onclick = function () {
             _this_ref.loading_status.checked = true;
             _this_ref.link_panel_status.checked = false;
+            let event = new CustomEvent("loadContentRequest",{detail:json_link_obj});
+            document.dispatchEvent(event);
         }
         this.menu_panel_obj.appendChild(btn);
     }
