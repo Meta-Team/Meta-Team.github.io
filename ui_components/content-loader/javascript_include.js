@@ -19,24 +19,25 @@ class content_loader {
         document.addEventListener('loadContentRequest',function (event){
             _this_ref.load_content(event);
         });
+        window.addEventListener('error',function (e) {
+            _this_ref.catch_error(e);
+        }, true);
     }
 
     load_content(event){
         let _this_ref = this;
         let htmlParser = new HTML_parser(event.detail.src);
         htmlParser.onload = function () {
-
             setTimeout(function (){
                 for (let i = 0; i < document.head.childNodes.length; i++) {
                     if(document.head.childNodes[i].nodeName==="LINK"&& document.head.childNodes[i].type ==="text/css"){
                         if(!document.head.childNodes[i].href.includes("/ui_components/css_include.css")) {
-                            console.log(document.head.childNodes[i]);
                             document.head.removeChild(document.head.childNodes[i]);
                         }
                     }
                 }
                 for (let i = 0; i < htmlParser.css.length; i++) {
-                    if(htmlParser.css[i].href!=="/ui_components/css_include.css") {
+                    if(!htmlParser.css[i].href.includes("/ui_components/css_include.css")) { // exclude universal css
                         document.head.appendChild(htmlParser.css[i]);
                     }
                 }
@@ -50,9 +51,21 @@ class content_loader {
                     }
                 }
                 _this_ref.content_window_obj.innerHTML = innerHTML;
-            },750);
+                window.history.pushState(event.detail,  event.detail.title, "#"+event.detail.title)
+            },1000);
+        };
+        htmlParser.onerror = function (e) {
+            document.documentElement.style.setProperty("--loading-text",'"ERROR:'+e+'"');
+            document.documentElement.style.setProperty("--loading-color", "rgb(100,0,0)");
         }
-        // window.history.pushState(event.detail, event.detail.title, "/"+event.detail.src);
+        document.documentElement.style.setProperty("--loading-text",'"LOADING"');
+        document.documentElement.style.setProperty("--loading-color", "var(--rm-yellow-darken)");
+    }
+
+    catch_error(e){
+        console.log('error catch');
+        document.documentElement.style.setProperty("--loading-text",'"ERROR:'+e+'"');
+        document.documentElement.style.setProperty("--loading-color", "red");
     }
 
     /**

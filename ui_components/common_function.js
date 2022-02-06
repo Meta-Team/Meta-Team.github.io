@@ -3,6 +3,7 @@ class HTML_parser{
         let _this_ref = this
 
         this.onload = null;
+        this.onerror= null;
         this.head   = null;
         this.body   = null;
         this.css    = [];
@@ -30,6 +31,12 @@ class HTML_parser{
                 try{
                     _this_ref.onload();
                 }catch (e) {
+                    console.log('error: '+e);
+                }
+            } else if (request.status === 404){
+                try {
+                    _this_ref.onerror("404");
+                } catch (e){
                     console.log('error: '+e);
                 }
             }

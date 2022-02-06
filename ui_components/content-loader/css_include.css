@@ -6,6 +6,8 @@
     --loading-grid-idle-size:200px;
     --loading-grid-index-offset-vert: 8;
     --loading-grid-index-offset-horz: 8;
+    --loading-text: "LOADING";
+    --loading-color: var(--rm-yellow-darken);
 }
 .content-screen{
 
@@ -110,8 +112,8 @@ horz-line:nth-child(odd){
     color: white;
     background: -webkit-linear-gradient(
             45deg,
-            var(--rm-yellow-darken) 0, var(--rm-yellow-darken) 10%, black 10%, black 50%,
-            var(--rm-yellow-darken) 50%, var(--rm-yellow-darken) 60%, black 60%, black
+            var(--loading-color) 0, var(--loading-color) 10%, black 10%, black 50%,
+            var(--loading-color) 50%, var(--loading-color) 60%, black 60%, black
     );
     background-size: 10px 10px;
     opacity: 0;
@@ -121,7 +123,7 @@ horz-line:nth-child(odd){
 }
 .loading-text:after{
     font-family: "Blender Pro", serif;
-    content: "LOADING";
+    content: var(--loading-text);
     padding: 5px;
     font-weight: 100;
     font-size: 20px;
