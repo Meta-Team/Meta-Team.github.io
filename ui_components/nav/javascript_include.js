@@ -10,13 +10,7 @@ class nav_controller{
         let _this_ref = this;
 
         // Init Event Listener
-        this.content_obj.addEventListener("scroll", function () {
-            if(_this_ref.content_obj.scrollTop > 0.25*_this_ref.content_obj.clientHeight) {
-                _this_ref.nav_obj.classList.add("scroll-down");
-            } else{
-                _this_ref.nav_obj.classList.remove("scroll-down");
-            }
-        });
+        this.content_obj.addEventListener("scroll", function(){_this_ref.scrollEventHandler()});
 
         // Init UI
         for ( let i = 0; i < parsed_json.links.length; i++) {
@@ -42,4 +36,16 @@ class nav_controller{
         }
         this.menu_panel_obj.appendChild(btn);
     }
+
+    /**
+     * @brief Controls the navigation bar transparency in scroll.
+     */
+    scrollEventHandler() {
+        if(this.content_obj.scrollTop > 0.25*this.content_obj.clientHeight) {
+            this.nav_obj.classList.add("scroll-down");
+        } else{
+            this.nav_obj.classList.remove("scroll-down");
+        }
+    }
+
 }

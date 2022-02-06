@@ -5,7 +5,7 @@
   "links": [
     {
       "title": "HOME",
-      "src": "home"
+      "src": "/resources/home/home.html"
     },
     {
       "title": "INFANTRY",

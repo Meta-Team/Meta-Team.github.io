@@ -43,6 +43,24 @@
     max-font-size: 28px;
     font-weight: 500;
 }
+.columns{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.column{
+    height: 374px;
+}
+@media screen and (min-width: 1000px){
+    .column{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 999px){
+    .column{
+        width: 100%;
+    }
+}
 
 .button{
     padding: 15px 40px;
@@ -60,7 +78,6 @@
     transition: all .5s;
     position: relative;
 }
-
 .button::after{
     content: "";
     position: absolute;
@@ -79,7 +96,6 @@
 
     z-index: -1;
 }
-
 .button:hover{
     background:transparent;
 }

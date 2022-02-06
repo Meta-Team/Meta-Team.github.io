@@ -22,14 +22,14 @@
     overflow-y: scroll;
 
     -webkit-overflow-scrolling : touch;
-    transition: all 0.5s 0.5s cubic-bezier(0.0,0.0,0.3,1.0);
+    transition: all 0.5s 0.5s cubic-bezier(.8,0,.2,1);
     transform-origin: center;
 }
 .content-screen::-webkit-scrollbar { width: 0 !important }
 
 #loading-status:checked ~ .content-screen{
     opacity: 0;
-    transition: all 0.4s cubic-bezier(.7,0.0,1.0,1.0);
+    transition: all 0.6s 0.0s cubic-bezier(.8,0,.2,1);
     transform: scale(0.6);
 }
 
@@ -236,6 +236,7 @@ horz-line:nth-child(odd){
 #loading-status:checked ~ #loading-screen .loading-text::after{
     padding: 25px;
 
+   transition: all 1s 0.5s cubic-bezier(.8,0,.2,1);;
     animation: loading-text-show 1s 0.5s forwards;
     -webkit-animation: loading-text-show 1s 0.5s forwards;
     background-size: 10px 10px;

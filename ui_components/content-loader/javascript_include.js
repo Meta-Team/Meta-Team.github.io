@@ -1,8 +1,10 @@
+document.write("<script language=javascript src='/ui_components/common_function.js'></script>")
 class content_loader {
     constructor(parsed_json) {
         this.content_window_obj = document.getElementById("content-screen");
         this.loading_grid_obj = document.getElementById("loading-grid");
         this.organization_name_obj = document.getElementById("loading-orgName");
+        this.loading_status = document.getElementById("loading-status");
 
         this.organization_name_obj.innerHTML = parsed_json.organization;
 
@@ -15,12 +17,41 @@ class content_loader {
             _this_ref._update_grid();
         });
         document.addEventListener('loadContentRequest',function (event){
-            console.log(event.detail);
             _this_ref.load_content(event);
         });
     }
 
     load_content(event){
+        let _this_ref = this;
+        let htmlParser = new HTML_parser(event.detail.src);
+        htmlParser.onload = function () {
+
+            setTimeout(function (){
+                for (let i = 0; i < document.head.childNodes.length; i++) {
+                    if(document.head.childNodes[i].nodeName==="LINK"&& document.head.childNodes[i].type ==="text/css"){
+                        if(!document.head.childNodes[i].href.includes("/ui_components/css_include.css")) {
+                            console.log(document.head.childNodes[i]);
+                            document.head.removeChild(document.head.childNodes[i]);
+                        }
+                    }
+                }
+                for (let i = 0; i < htmlParser.css.length; i++) {
+                    if(htmlParser.css[i].href!=="/ui_components/css_include.css") {
+                        document.head.appendChild(htmlParser.css[i]);
+                    }
+                }
+            },400);
+            setTimeout(function (){
+                _this_ref.loading_status.checked = false;
+                let innerHTML = null;
+                for(let i = 0; i < htmlParser.body.childNodes.length; i++) {
+                    if (htmlParser.body.childNodes[i].id === "content-screen"){
+                        innerHTML = htmlParser.body.childNodes[i].innerHTML;
+                    }
+                }
+                _this_ref.content_window_obj.innerHTML = innerHTML;
+            },750);
+        }
         // window.history.pushState(event.detail, event.detail.title, "/"+event.detail.src);
     }
 
