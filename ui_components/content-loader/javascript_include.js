@@ -57,6 +57,7 @@ class content_loader {
         htmlParser.onerror = function (e) {
             document.documentElement.style.setProperty("--loading-text",'"ERROR:'+e+'"');
             document.documentElement.style.setProperty("--loading-color", "rgb(100,0,0)");
+            window.history.pushState(event.detail,  event.detail.title, "#404");
         }
         document.documentElement.style.setProperty("--loading-text",'"LOADING"');
         document.documentElement.style.setProperty("--loading-color", "var(--rm-yellow-darken)");
