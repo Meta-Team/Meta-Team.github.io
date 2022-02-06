@@ -71,7 +71,7 @@ class content_loader {
         if(document.documentElement.style.getPropertyValue('--loading-text').includes("ERROR")){
             document.getElementById('loading-textBox').animate(
                 this.loading_text_fade_keyframe , {
-                    fill: "forwards",
+                    fill: "auto",
                     easing: 'ease-in-out',
                     duration: 1500
                 });
@@ -85,7 +85,7 @@ class content_loader {
     catch_error(e, event){
         document.getElementById('loading-textBox').animate(
             this.loading_text_show_keyframe , {
-                fill: "forwards",
+                fill: "auto",
                 easing: 'ease-in-out',
                 duration: 500
             });
