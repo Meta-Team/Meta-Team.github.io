@@ -8,6 +8,17 @@ class content_loader {
 
         this.organization_name_obj.innerHTML = parsed_json.organization;
 
+        this.loading_text_show_keyframe = [{ opacity: 0 }, { opacity: 1 }, { opacity: 0 }, { opacity: 1 },
+                                        { opacity: 0 }, { opacity: 1 }, { opacity: 0 }, { opacity: 1 }];
+        this.loading_text_fade_keyframe = [{ opacity: 0 }, { opacity: 1 }, { opacity: 0 }, { opacity: 1 },
+                                        { opacity: 0 }, { opacity: 1 }, { opacity: 0 }, { opacity: 1 },
+                                        { opacity: 1 },{ opacity: 1 },{ opacity: 1 },{ opacity: 1 },
+                                        { opacity: 1 },{ opacity: 1 },{ opacity: 1 },{ opacity: 1 },
+                                        { opacity: 1 },{ opacity: 1 },{ opacity: 1 },{ opacity: 1 },
+                                        { opacity: 1 },{ opacity: 1 },{ opacity: 1 },{ opacity: 1 },
+                                        { opacity: 1 },{ opacity: 0 }, { opacity: 1 }, { opacity: 0 },
+                                        { opacity: 1 }, { opacity: 0 }, { opacity: 1 }, { opacity: 0 },];
+
         let _this_ref = this;
         this._update_grid();
         window.addEventListener('resize',function (){
@@ -55,18 +66,33 @@ class content_loader {
             },1000);
         };
         htmlParser.onerror = function (e) {
-            document.documentElement.style.setProperty("--loading-text",'"ERROR:'+e+'"');
-            document.documentElement.style.setProperty("--loading-color", "rgb(100,0,0)");
-            window.history.pushState(event.detail,  event.detail.title, "#404");
+            _this_ref.catch_error(e, event);
+        }
+        if(document.documentElement.style.getPropertyValue('--loading-text').includes("ERROR")){
+            document.getElementById('loading-textBox').animate(
+                this.loading_text_fade_keyframe , {
+                    fill: "forwards",
+                    easing: 'ease-in-out',
+                    duration: 1500
+                });
+            console.log('play animation');
         }
         document.documentElement.style.setProperty("--loading-text",'"LOADING"');
         document.documentElement.style.setProperty("--loading-color", "var(--rm-yellow-darken)");
+        document.documentElement.style.setProperty("--loading-grid-color",'var(--loading-grid-dark)');
     }
 
-    catch_error(e){
-        console.log('error catch');
+    catch_error(e, event){
+        document.getElementById('loading-textBox').animate(
+            this.loading_text_show_keyframe , {
+                fill: "forwards",
+                easing: 'ease-in-out',
+                duration: 500
+            });
         document.documentElement.style.setProperty("--loading-text",'"ERROR:'+e+'"');
-        document.documentElement.style.setProperty("--loading-color", "red");
+        document.documentElement.style.setProperty("--loading-color", "rgb(100,0,0)");
+        document.documentElement.style.setProperty("--loading-grid-color",'var(--loading-grid-red)');
+        window.history.pushState(event.detail,  event.detail.title, "#404");
     }
 
     /**

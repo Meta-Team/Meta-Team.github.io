@@ -11,6 +11,9 @@ html, body{ width: 100% ; height: 100%; position: fixed; font-family: NunitoSans
     --rm-blue: rgb(62,145,247);
     --rm-yellow-darken: rgb(72,58,27);
     --rm-yellow: rgba(245,193,66);
+
+    --loading-grid-dark:rgb(50,50,50);
+    --loading-grid-red:rgb(70,30,30);
 }
 
 flex-break{

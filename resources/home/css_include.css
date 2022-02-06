@@ -1,4 +1,9 @@
 @import "modules.css";
+:root{
+    --home-content-border-width: 1px;
+    --home-content-border-color: rgba(255,255,255,.3);
+}
+
 #content-1::after{
     background-image: url("https://rm-static.djicdn.com/tem/12037/4c2203031538048406278271658.jpg");
 }
@@ -8,5 +13,17 @@
 }
 
 #content-3::after{
+    background-image: url("https://rm-static.djicdn.com/tem/55708/281b9c07e48791632310737147951570.png");
+}
+
+#content-4::after{
+    background-image: url("https://rm-static.djicdn.com/tem/12037/4c2203031538048406278271658.jpg");
+}
+
+#content-5::after{
+    background-image: url("https://rm-static.djicdn.com/tem/12037/4ca945f41538039038230294206.jpg");
+}
+
+#content-6::after{
     background-image: url("https://rm-static.djicdn.com/tem/55708/281b9c07e48791632310737147951570.png");
 }

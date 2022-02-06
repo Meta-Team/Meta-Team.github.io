@@ -6,6 +6,7 @@
     --loading-grid-idle-size:200px;
     --loading-grid-index-offset-vert: 8;
     --loading-grid-index-offset-horz: 8;
+    --loading-grid-color: var(--loading-grid-dark);
     --loading-text: "LOADING";
     --loading-color: var(--rm-yellow-darken);
 }
@@ -62,7 +63,7 @@ vert-line{
     width: 1px;
     height: 100%;
 
-    background-color: rgb(50,50,50);
+    background-color: var(--loading-grid-color);
 
     transform: scaleY(0);
     transition: all 0.5s calc((var(--loading-grid-index-offset-vert) - var(--index))*0.05s) cubic-bezier(1,.0,.5,1);
@@ -79,7 +80,7 @@ horz-line{
     width: 100%;
     height: 1px;
 
-    background-color: rgb(50,50,50);
+    background-color: var(--loading-grid-color);
 
     transform-origin: left top;
     transform: scaleX(0);
@@ -161,6 +162,7 @@ horz-line:nth-child(odd){
 
     transition: all 0.2s 0.5s;
 }
+
 #loading-textBox::before{
     content: "";
 
