@@ -1,6 +1,6 @@
 @import "modules.css";
 :root{
-    --home-content-border-width: 1px;
+    --home-content-border-width: 2px;
     --home-content-border-color: rgba(255,255,255,.3);
 }
 
