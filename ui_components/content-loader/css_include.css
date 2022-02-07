@@ -158,7 +158,9 @@ horz-line:nth-child(odd){
 #loading-textBox{
     z-index: 1;
     align-self: center;
-    border: 1px rgb(75, 75, 75) solid;
+
+    border: 3px solid rgba(255,255,255,.5);
+    border-image: 8 url('/ui_components/content-loader/Frame.png');
 
     background: rgba(0,0,0,.5);
     opacity: 0;
