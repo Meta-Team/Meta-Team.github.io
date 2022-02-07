@@ -27,6 +27,9 @@
     -webkit-overflow-scrolling : touch;
     transition: all 0.5s 0.5s cubic-bezier(.8,0,.2,1);
     transform-origin: center;
+
+    display: flex;
+    flex-wrap: wrap;
 }
 .content-screen::-webkit-scrollbar { width: 0 !important }
 

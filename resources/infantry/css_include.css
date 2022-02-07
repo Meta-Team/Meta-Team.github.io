@@ -1,0 +1,20 @@
+@import "/resources/infantry/modules.css";
+:root{
+    --intro-line-dark: rgb(50,50,50);
+}
+
+#infantry-text-panel-1{
+    position: relative;
+    z-index: 1;
+}
+
+@media screen and (min-width: 700px) {
+    #infantry-text-panel-1{
+        width: 30vw;
+    }
+}
+@media screen and (max-width: 699px) {
+    #infantry-text-panel-1{
+        width: 60vw;
+    }
+}
