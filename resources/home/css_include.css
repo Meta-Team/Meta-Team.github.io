@@ -1,6 +1,6 @@
 @import "modules.css";
 :root{
-    --home-content-border-width: 2px;
+    --home-content-border-width: 2px; /**Need to be even number to get correct layout on chrome*/
     --home-content-border-color: rgba(255,255,255,.3);
 }
 
