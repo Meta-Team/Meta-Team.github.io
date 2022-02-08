@@ -13,9 +13,9 @@ class website_controller{
         json_request.onload = function () {
             if (json_request.status === 200){
                 let parsed_json = JSON.parse(json_request.responseText);
-                let NavController = new nav_controller(parsed_json);
+                nav_controller.init(parsed_json);
+                content_loader.init(parsed_json);
                 document.title = parsed_json.title;
-                let ContentLoader = new content_loader(parsed_json);
                 let current_sub_page_index = 0;
                 for (let i = 0; i < parsed_json.links.length; i++) {
                     if (window.location.href.indexOf(parsed_json.links[i].title)!==-1) {

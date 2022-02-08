@@ -1,36 +1,33 @@
 class nav_controller{
-    constructor(parsed_json) {
-        this.nav_obj = document.getElementById("navigation-bar");
-        this.content_obj = document.getElementById("content-screen");
-        this.menu_panel_obj = document.getElementById("nav-menuPanel");
-        this.logo_panel_obj = document.getElementById("nav-logoPanel");
-        this.loading_status = document.getElementById("loading-status");
-        this.link_panel_status = document.getElementById("nav-panel-status");
-
-        let _this_ref = this;
+    static init(parsed_json) {
+        nav_controller.nav_obj = document.getElementById("navigation-bar");
+        nav_controller.content_obj = document.getElementById("content-screen");
+        nav_controller.menu_panel_obj = document.getElementById("nav-menuPanel");
+        nav_controller.logo_panel_obj = document.getElementById("nav-logoPanel");
+        nav_controller.loading_status = document.getElementById("loading-status");
+        nav_controller.link_panel_status = document.getElementById("nav-panel-status");
 
         // Init Event Listener
-        this.content_obj.addEventListener("scroll", function(){_this_ref.scrollEventHandler()});
+        nav_controller.content_obj.addEventListener("scroll", function(){nav_controller.scrollEventHandler()});
 
         // Init UI
         for ( let i = 0; i < parsed_json.links.length; i++) {
-            this.make_btn(parsed_json.links[i]);
+            nav_controller.make_btn(parsed_json.links[i]);
         }
-        this.logo_panel_obj.style.backgroundImage = "url('" + parsed_json.logo + "')";
+        nav_controller.logo_panel_obj.style.backgroundImage = "url('" + parsed_json.logo + "')";
     }
 
     /**
      * @brief   Create a link button for navigation bar panel
      * @var     json_link_obj an object under "link" category of website-config.json. Contains "title" and "src".
      */
-    make_btn(json_link_obj) {
-        let _this_ref = this;
+    static make_btn(json_link_obj) {
         let btn = document.createElement("div");
         btn.classList.add("menu-items");
         btn.innerText = json_link_obj.title;
         btn.onclick = function () {
-            _this_ref.loading_status.checked = true;
-            _this_ref.link_panel_status.checked = false;
+            nav_controller.loading_status.checked = true;
+            nav_controller.link_panel_status.checked = false;
             let event = new CustomEvent("loadContentRequest",{detail:json_link_obj});
             document.dispatchEvent(event);
         }
@@ -40,11 +37,11 @@ class nav_controller{
     /**
      * @brief Controls the navigation bar transparency in scroll.
      */
-    scrollEventHandler() {
-        if(this.content_obj.scrollTop > 0.25*this.content_obj.clientHeight) {
-            this.nav_obj.classList.add("scroll-down");
+    static scrollEventHandler() {
+        if(nav_controller.content_obj.scrollTop > 0.25*nav_controller.content_obj.clientHeight) {
+            nav_controller.nav_obj.classList.add("scroll-down");
         } else{
-            this.nav_obj.classList.remove("scroll-down");
+            nav_controller.nav_obj.classList.remove("scroll-down");
         }
     }
 
