@@ -24,9 +24,12 @@ class website_controller{
                         _this_ref.link_panel_status.checked = false;
                         let event = new CustomEvent("loadContentRequest",{detail:parsed_json.links[current_sub_page_index]});
                         document.dispatchEvent(event);
-                    } else {
+                    } else if(window.location.href.includes("#404")){
                         _this_ref.loading_status.checked = true;
                         content_loader.catch_error("404");
+                    } else {
+                        let event = new CustomEvent("loadContentRequest",{detail:parsed_json.links[0]});
+                        document.dispatchEvent(event);
                     }
                 }
 
