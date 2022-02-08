@@ -40,6 +40,7 @@ class content_loader {
         let htmlParser = new HTML_parser(event.detail.src);
         htmlParser.onload = function () {
             setTimeout(function (){
+                // Clear previous page CSS
                 for (let i = 0; i < document.head.childNodes.length; i++) {
                     if(document.head.childNodes[i].nodeName==="LINK"&& document.head.childNodes[i].type ==="text/css"){
                         if(!document.head.childNodes[i].href.includes("/ui_components/css_include.css")) {
@@ -47,22 +48,27 @@ class content_loader {
                         }
                     }
                 }
+                // Add css
                 for (let i = 0; i < htmlParser.css.length; i++) {
                     if(!htmlParser.css[i].href.includes("/ui_components/css_include.css")) { // exclude universal css
                         document.head.appendChild(htmlParser.css[i]);
                     }
                 }
+                /** TODO: Any way for javascript injection? */
             },400);
+
             setTimeout(function (){
-                _content_loader_ref.loading_status.checked = false;
                 let innerHTML = null;
+                // HTML inject
                 for(let i = 0; i < htmlParser.body.childNodes.length; i++) {
                     if (htmlParser.body.childNodes[i].id === "content-screen"){
                         innerHTML = htmlParser.body.childNodes[i].innerHTML;
                     }
                 }
                 _content_loader_ref.content_window_obj.innerHTML = innerHTML;
-                window.history.pushState(event.detail,  event.detail.title, "#"+event.detail.title)
+                // Browser history
+                window.history.pushState(event.detail,  event.detail.title, "#"+event.detail.title);
+                _content_loader_ref.loading_status.checked = false;
             },1000);
         };
         htmlParser.onerror = function (e) {
@@ -75,7 +81,6 @@ class content_loader {
                     easing: 'ease-in-out',
                     duration: 1500
                 });
-            console.log('play animation');
         }
         document.documentElement.style.setProperty("--loading-text",'"LOADING"');
         document.documentElement.style.setProperty("--loading-color", "var(--rm-yellow-darken)");

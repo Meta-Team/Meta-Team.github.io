@@ -23,9 +23,9 @@ class HTML_parser{
                         if(!_this_ref.css.includes(_this_ref.head.childNodes[i])) _this_ref.css.push(_this_ref.head.childNodes[i]);
                     }
                 }
-                for (let i = 0; i < _this_ref.body.childNodes.length; i++){
+                for (let i = _this_ref.body.childNodes.length - 1; i > 0; i--){
                     if (_this_ref.body.childNodes[i].nodeName==="SCRIPT"){
-                        if(!_this_ref.script.includes(_this_ref.body.childNodes[i])) _this_ref.css.push(_this_ref.body.childNodes[i]);
+                        if(!_this_ref.script.includes(_this_ref.body.childNodes[i])) _this_ref.script.push(_this_ref.body.childNodes[i]);
                     }
                 }
                 try{

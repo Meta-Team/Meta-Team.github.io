@@ -20,12 +20,16 @@ class website_controller{
                 for (let i = 0; i < parsed_json.links.length; i++) {
                     if (window.location.href.indexOf(parsed_json.links[i].title)!==-1) {
                         current_sub_page_index = i;
+                        _this_ref.loading_status.checked = true;
+                        _this_ref.link_panel_status.checked = false;
+                        let event = new CustomEvent("loadContentRequest",{detail:parsed_json.links[current_sub_page_index]});
+                        document.dispatchEvent(event);
+                    } else {
+                        _this_ref.loading_status.checked = true;
+                        content_loader.catch_error("404");
                     }
                 }
-                _this_ref.loading_status.checked = true;
-                _this_ref.link_panel_status.checked = false;
-                let event = new CustomEvent("loadContentRequest",{detail:parsed_json.links[current_sub_page_index]});
-                document.dispatchEvent(event);
+
             }
         }
     }
