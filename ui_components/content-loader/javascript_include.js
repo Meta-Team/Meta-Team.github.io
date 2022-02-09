@@ -43,14 +43,14 @@ class content_loader {
                 // Clear previous page CSS
                 for (let i = 0; i < document.head.childNodes.length; i++) {
                     if(document.head.childNodes[i].nodeName==="LINK"&& document.head.childNodes[i].type ==="text/css"){
-                        if(!document.head.childNodes[i].href.includes("/ui_components/css_include.css")) {
+                        if(!document.head.childNodes[i].href.includes("/ui_components/")) {
                             document.head.removeChild(document.head.childNodes[i]);
                         }
                     }
                 }
                 // Add css
                 for (let i = 0; i < htmlParser.css.length; i++) {
-                    if(!htmlParser.css[i].href.includes("/ui_components/css_include.css")) { // exclude universal css
+                    if(!htmlParser.css[i].href.includes("/ui_components/")) { // exclude universal css
                         document.head.appendChild(htmlParser.css[i]);
                     }
                 }
