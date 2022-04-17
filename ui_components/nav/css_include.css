@@ -9,33 +9,16 @@ nav{
 
     color: white;
     z-index: 2;
+    backdrop-filter: blur(0px) brightness(100%);
+    -webkit-backdrop-filter: blur(0px) brightness(100%);
 }
-nav::after{
-    content: "";
 
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 2;
-
-    transition: all 0.5s ease-in-out;
-}
 .scroll-down{
     border-bottom: rgba(255,255,255,0.2) 1px solid;
-}
-.scroll-down::after{
-    z-index: 2;
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background-color: rgba(20,20,20,0.0);
     backdrop-filter: blur(20px) brightness(50%);
     -webkit-backdrop-filter: blur(20px) brightness(50%);
 }
+
 /********************************************//**
  *                Logo Panel
  ***********************************************/
@@ -127,12 +110,6 @@ nav .menu-items:hover::after{
         display: flex;
     }
 
-    nav::after{
-        background-color: transparent;
-        backdrop-filter: initial;
-        -webkit-backdrop-filter: initial;
-    }
-
     .nav-menuPanel {
         position: absolute;
         right: 50px;
@@ -166,12 +143,10 @@ nav .menu-items:hover::after{
         justify-content: center;
 
         flex-wrap: wrap;
-    }
-    nav::after{
-        background-color: rgba(20,20,20,0.0);
         backdrop-filter: blur(20px) brightness(50%);
         -webkit-backdrop-filter: blur(20px) brightness(50%);
     }
+
     /********************************************//**
      *             Panel Toggle Button
      ***********************************************/
