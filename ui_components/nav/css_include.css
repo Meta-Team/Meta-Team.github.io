@@ -11,6 +11,8 @@ nav{
     z-index: 2;
     backdrop-filter: blur(0px) brightness(100%);
     -webkit-backdrop-filter: blur(0px) brightness(100%);
+
+    transition: all 0.25s;
 }
 
 .scroll-down{
